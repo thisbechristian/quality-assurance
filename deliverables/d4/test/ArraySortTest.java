@@ -61,7 +61,7 @@ public class ArraySortTest{
           decreasing = false;
         }
       }
-      
+
       assertTrue(decreasing);
     }
   }
@@ -94,20 +94,6 @@ public class ArraySortTest{
   @Test
   public void testIdempotent(){
     for(int run = 0; run < ARRAYS_TO_TEST; run++){
-      int[] sortedFirst = randomArray();
-      int[] sortedSecond = copyArray(sortedFirst);
-
-      Arrays.sort(sortedFirst);
-      Arrays.sort(sortedSecond);
-
-      assertArrayEquals(sortedFirst, sortedSecond);
-    }
-  }
-
-  // Running it twice on the same input array should always result in the same output (sorted) array
-  @Test
-  public void testPure(){
-    for(int run = 0; run < ARRAYS_TO_TEST; run++){
       int[] sortedTwice = randomArray();
       Arrays.sort(sortedTwice);
 
@@ -115,6 +101,20 @@ public class ArraySortTest{
       Arrays.sort(sortedTwice);
 
       assertArrayEquals(sortedOnce, sortedTwice);
+    }
+  }
+
+  // Running it twice on the same input array should always result in the same output (sorted) array
+  @Test
+  public void testPure(){
+    for(int run = 0; run < ARRAYS_TO_TEST; run++){
+      int[] sortedFirst = randomArray();
+      int[] sortedSecond = copyArray(sortedFirst);
+
+      Arrays.sort(sortedFirst);
+      Arrays.sort(sortedSecond);
+
+      assertArrayEquals(sortedFirst, sortedSecond);
     }
   }
 
