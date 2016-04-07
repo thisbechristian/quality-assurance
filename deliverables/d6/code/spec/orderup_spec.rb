@@ -1,4 +1,4 @@
-require_relative 'Header'
+require 'spec_helper'
 
 describe OrderUp do
 
